@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn.icon-icons.com/icons2/606/PNG/512/coins-of-dollars-stack_icon-icons.com_56192.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Cotação de Moedas</title>
+</head>
+<body>
+    
+    <!-- Parte Inicial da aplicação -->
+    <header>
+        <div class='container'>
+            <img src="https://cdn.icon-icons.com/icons2/606/PNG/512/coins-of-dollars-stack_icon-icons.com_56192.png" align="middle">
+            <div id="title"><h1>Cotação de Moedas</h1></div>
+        </div>
+    </header>
+
+    <!-- Uma box representando a cotação do dolar e Euro -->
+    <div class="bigbox">
+        <div class="box">
+            <p>Dólar</p>
+            <h2>US$: {{ dolar }}</h2>
+        </div>
+        <div class="box">
+            <p>Euro</p>
+            <h2>€: {{ euro }}</h2>
+        </div>
+    </div>
+
+
+    <!-- Uma box representando a cotação do Iene e Libra esterlina -->
+    <div class="bigbox">
+        <div class="box">
+            <p>Libra</p>
+            <h2>£: {{ gbp }}</h2>
+        </div>
+        <div class="box">
+            <p>Iene</p>
+            <h2>¥: {{ ien }}</h2>
+        </div>
+    </div>
+
+</body>
+</html>
