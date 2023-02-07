@@ -18,10 +18,14 @@
         </div>
     </header>
 
+    <div class="desc">
+        <p>Esta aplicação realiza uma pesquisa em uma API. <br> Para demonstrar o valor do Real comparado com as principais moedas do mundo!</p>
+    </div>
+
     <!-- Uma box representando a cotação do dolar e Euro -->
     <div class="bigbox">
         <div class="box">
-            <p>Dólar</p>
+            <p>Dólar Americano</p>
             <h2>US$: {{ dolar }}</h2>
         </div>
         <div class="box">
@@ -34,7 +38,7 @@
     <!-- Uma box representando a cotação do Iene e Libra esterlina -->
     <div class="bigbox">
         <div class="box">
-            <p>Libra</p>
+            <p>Libra esterlina</p>
             <h2>£: {{ gbp }}</h2>
         </div>
         <div class="box">
@@ -42,6 +46,24 @@
             <h2>¥: {{ ien }}</h2>
         </div>
     </div>
+
+
+    <!-- Uma box representando a cotação do Dolar Canadense e Franco suiço -->
+    <div class="bigbox">
+        <div class="box">
+            <p>Franco Suiço</p>
+            <h2>fr: {{ chf }}</h2>
+        </div>
+        <div class="box">
+            <p>Dolar canadense</p>
+            <h2>C$: {{ cad }}</h2>
+        </div>
+    </div>
+
+    <!-- Footer do site, aonde mostra meu @ das redes sociais-->
+    <footer>
+        <p>Site feito por @kaue_cabesss</p>
+    </footer>
 
 </body>
 </html>
