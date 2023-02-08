@@ -41,31 +41,34 @@ cad = cotacao_tot['CADBRL']['bid']
 
 # Inicialização do Python Flask, para demonstrar a cotação
 app = Flask(__name__)
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['POST', 'GET'])
 def index():
     
+    if request.method == 'POST':
     # Definindo os valores!
-    valor = request.form['valor']
-    _dolar = 0
-    _euro = 0
-    _ien = 0
-    _gbp = 0
-    _chf = 0
-    _cad = 0
+        valor = request.form['valor']
+        _dolar = 0
+        _euro = 0
+        _ien = 0
+        _gbp = 0
+        _chf = 0
+        _cad = 0
     
     # Convertendo os valores
-    if float(valor) <= 0:
-        valor = 1
-    else:
-        _dolar = '{:.2f}'.format(float(dolar) * float(valor))
-        _euro = '{:.2f}'.format(float(euro) * float(valor))
-        _ien = '{:.2f}'.format(float(ien) * float(valor))
-        _gbp = '{:.2f}'.format(float(gbp) * float(valor))
-        _chf = '{:.2f}'.format(float(chf) * float(valor))
-        _cad = '{:.2f}'.format(float(cad) * float(valor))
+        if float(valor) <= 0:
+            valor = 1
+        else:
+            _dolar = '{:.2f}'.format(float(dolar) * float(valor))
+            _euro = '{:.2f}'.format(float(euro) * float(valor))
+            _ien = '{:.2f}'.format(float(ien) * float(valor))
+            _gbp = '{:.2f}'.format(float(gbp) * float(valor))
+            _chf = '{:.2f}'.format(float(chf) * float(valor))
+            _cad = '{:.2f}'.format(float(cad) * float(valor))
     
     
-    return render_template('index.html', dolar=_dolar, euro=_euro,  ien=_ien,  gbp=_gbp,  chf=_chf,  cad=_cad)
+        return render_template('index.html', dolar=_dolar, euro=_euro,  ien=_ien,  gbp=_gbp,  chf=_chf,  cad=_cad)
+    return render_template('index.html', dolar=dolar[:4], euro=euro[:4],  ien=ien[:4],  gbp=gbp[:4],  chf=chf[:4],  cad=cad[:4])
+
 
 if __name__ == "__main__":
     app.run(debug=True)
