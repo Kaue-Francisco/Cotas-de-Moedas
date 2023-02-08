@@ -22,6 +22,17 @@
         <p>Esta aplicação realiza uma pesquisa em uma API. <br> Para demonstrar o valor do Real comparado com as principais moedas do mundo!</p>
     </div>
 
+
+    <!-- Converter o Valor que o Usuário escolher. -->
+    <div class="calc">
+        <h2>Qual valor você quer Calcular?</h2>
+        <form action="{{ url_for('index') }}" method="post">
+            <label>R$</label>
+            <input type="number" name="valor"></input>
+        </form>
+    </div>
+
+
     <!-- Uma box representando a cotação do dolar e Euro -->
     <div class="bigbox">
         <div class="box">
