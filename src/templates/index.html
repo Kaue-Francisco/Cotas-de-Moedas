@@ -12,65 +12,39 @@
     
     <!-- Parte Inicial da aplicação -->
     <header>
-        <div class='container'>
-            <img src="https://cdn.icon-icons.com/icons2/606/PNG/512/coins-of-dollars-stack_icon-icons.com_56192.png" align="middle">
-            <div id="title"><h1>Cotação de Moedas</h1></div>
-        </div>
+        <img src="https://cdn.icon-icons.com/icons2/606/PNG/512/coins-of-dollars-stack_icon-icons.com_56192.png" align="middle">
+        <div id="title"><h1>Cotação de Moedas</h1></div>
     </header>
+    
+    <main>
+        <div class="container">
+            <div class="desc">
+                <p>Esta aplicação realiza uma pesquisa em uma API. <br> Para demonstrar o valor do Real comparado com as principais moedas do mundo!</p>
+            </div>
 
-    <div class="desc">
-        <p>Esta aplicação realiza uma pesquisa em uma API. <br> Para demonstrar o valor do Real comparado com as principais moedas do mundo!</p>
-    </div>
+            <!-- Converter o Valor que o Usuário escolher. -->
+            <div class="calc">
+                <h2>Qual valor você quer Calcular?</h2>
+                <form action="{{ url_for('index') }}" method="POST">
+                    <label>R$</label>
+                    <input type="number" name="valor"></input>
+                </form>
+            </div>
 
-
-    <!-- Converter o Valor que o Usuário escolher. -->
-    <div class="calc">
-        <h2>Qual valor você quer Calcular?</h2>
-        <form action="{{ url_for('index') }}" method="POST">
-            <label>R$</label>
-            <input type="number" name="valor"></input>
-        </form>
-    </div>
-
-
-    <!-- Uma box representando a cotação do dolar e Euro -->
-    <div class="bigbox">
-        <div class="box">
-            <p>Dólar Americano</p>
-            <h2>US$: {{ dolar }}</h2>
+            <div class="content">
+                <div class="bigbox">
+                <!-- Uma box representando a cotação do dolar e Euro -->
+                {% for valor in values_quotation %}
+                    <div class="box">
+                        <p>{{ valor }}</p>
+                        <h2>$: {{ values_quotation[valor] }}</h2>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
         </div>
-        <div class="box">
-            <p>Euro</p>
-            <h2>€: {{ euro }}</h2>
-        </div>
-    </div>
-
-
-    <!-- Uma box representando a cotação do Iene e Libra esterlina -->
-    <div class="bigbox">
-        <div class="box">
-            <p>Libra esterlina</p>
-            <h2>£: {{ gbp }}</h2>
-        </div>
-        <div class="box">
-            <p>Iene</p>
-            <h2>¥: {{ ien }}</h2>
-        </div>
-    </div>
-
-
-    <!-- Uma box representando a cotação do Dolar Canadense e Franco suiço -->
-    <div class="bigbox">
-        <div class="box">
-            <p>Franco Suiço</p>
-            <h2>fr: {{ chf }}</h2>
-        </div>
-        <div class="box">
-            <p>Dolar canadense</p>
-            <h2>C$: {{ cad }}</h2>
-        </div>
-    </div>
-
+    </main>
+            
     <!-- Footer do site, aonde mostra meu @ das redes sociais-->
     <footer>
         <p>Site feito por @kaue_cabesss</p>

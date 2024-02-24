@@ -31,10 +31,14 @@ def index():
             _gbp = '{:.2f}'.format(float(valor) / float(cotacao.gbp))
             _chf = '{:.2f}'.format(float(valor) / float(cotacao.chf))
             _cad = '{:.2f}'.format(float(valor) / float(cotacao.cad))
-    
-        return render_template('index.html', dolar=_dolar, euro=_euro,  ien=_ien,  gbp=_gbp,  chf=_chf,  cad=_cad)
 
-    return render_template('index.html', dolar=cotacao.dolar[:4], euro=cotacao.euro[:4],  ien=cotacao.ien[:4],  gbp=cotacao.gbp[:4],  chf=cotacao.chf[:4],  cad=cotacao.cad[:4])
+            values_quotation = {'Dólar Americano': _dolar, 'Euro': _euro, 'Iene': _ien, 'Libra Esterlina': _gbp, 'Franco Suíço': _chf, 'Dólar Canadense': _cad}
+    
+        return render_template('index.html', values_quotation=values_quotation)
+    
+    values_quotation = {'Dólar Americano': cotacao.dolar[:4], 'Euro': cotacao.euro[:4], 'Iene': cotacao.ien[:4], 'Libra Esterlina': cotacao.gbp[:4], 'Franco Suíço': cotacao.chf[:4], 'Dólar Canadense': cotacao.cad[:4]}
+
+    return render_template('index.html', values_quotation=values_quotation)
 
 if __name__ == "__main__":
     cotacao = Quotation()

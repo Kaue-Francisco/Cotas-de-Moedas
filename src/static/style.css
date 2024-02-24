@@ -30,7 +30,7 @@ input {
     padding: 5px;
 }
 
-.container img {
+header img {
     width: 50px;
     height: 50px;
     margin-top: -5px;
@@ -44,14 +44,15 @@ input {
 
 .bigbox {
     display: flex;
-    align-items: center;
-    justify-content: center
+    flex-wrap: wrap; /* Adicionando flex-wrap para quebrar para uma nova linha */
+    justify-content: space-between; /* Adicionando espaço entre os elementos */
+    width: 70%;
 }
 
 .box {
     background-image: linear-gradient(to left,rgb(100, 245, 100), rgb(255, 255, 255));
     width: 250px;
-    margin: 20px auto;
+    margin: 8px; /* Alterando o valor do margin */
     text-align: center;
     border-radius: 10px;
     padding: 30px;
@@ -67,4 +68,14 @@ input {
     transform: translate(-50%);
     text-align: center;
     padding: 15px;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
